@@ -69,27 +69,45 @@ body {
   -o-transform: translate3d(0, 100%, 0);
 }
 
-.carousel-indicators {
+.carousel-indicators img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
   top: 0;
   margin: auto;
-  height: 20px;
-  right: 10px;
+  height: 40px;
+  right: 20px;
   left: auto;
   display: block;
+  flex-direction: column;
+  transform: rotate(180deg);
 }
 
-.carousel-indicators [data-bs-target] {
-  background: none;
-  border: 2px solid rgb(212, 212, 212);
-  border-radius: 12px;
+.carousel-indicators li {
+  background: none !important;
+  margin-bottom: 30px !important;
+  /* Remove default Bootstrap indicators */
+}
+
+/* .carousel-indicators [data-bs-target] {} */
+
+.carousel-indicators {
+  margin-right: 1% !important;
+  left: auto !important;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+}
+
+
+/* .carousel-indicators img {
   width: 12px;
   height: 12px;
   margin-bottom: 5px;
-}
+} */
 
-.carousel-indicators li.active {
-  background: rgb(212, 212, 212);
-}
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
