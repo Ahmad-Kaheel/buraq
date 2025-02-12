@@ -1,3 +1,73 @@
+/*----------------------------------------------------------------
+navbar
+------------------------------------------------------------------*/
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+
+.navbar .nav-link {
+  color: #0f8fea !important;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #fcfcfc !important;
+  /* Highlight color on hover */
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent background */
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+/* Navbar Icons */
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Navbar Logo */
+.nav-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Center the menu items */
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.navbar .dropdown-item {
+  color: white;
+}
+
+.navbar .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+/*----------------------------------------------------------------
+General Styles
+------------------------------------------------------------------*/
+
 @font-face {
   font-family: 'Segoe-UI-Light-TTF';
   src: url('./segoeuil.ttf');
@@ -70,23 +140,81 @@ body {
 }
 
 .carousel-indicators img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 5px;
-  top: 0;
-  margin: auto;
-  height: 40px;
-  right: 20px;
+  width: 20px;
+  height: 20px;
+  /* margin-bottom: 5px; */
+  /* top: 0; */
+  /* margin: auto; */
+  /* height: 40px;
+  right: 20px; */
   left: auto;
   display: block;
   flex-direction: column;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
+  filter: invert(47%) sepia(82%) saturate(3332%) hue-rotate(181deg) brightness(95%) contrast(93%);
+  position: relative;
+
+}
+
+/* Tooltip Styling */
+.carousel-indicators img::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  /* Moves tooltip above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  /* Prevents tooltip from interfering with hover */
+}
+
+/* Tooltip Arrow */
+.carousel-indicators img::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% - 4px);
+  /* Places arrow right at the bottom of the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show Tooltip on Hover */
+.carousel-indicators img:hover::after,
+.carousel-indicators img:hover::before {
+  opacity: 1;
+}
+
+.tooltip-inner {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.bs-tooltip-left .tooltip-arrow::before {
+  border-left-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-indicators li {
   background: none !important;
-  margin-bottom: 30px !important;
   /* Remove default Bootstrap indicators */
+
+  margin-bottom: 30px !important;
+  position: relative;
+
 }
 
 /* .carousel-indicators [data-bs-target] {} */
