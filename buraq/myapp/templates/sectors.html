@@ -1,5 +1,33 @@
 {% load static %}
-<!-- <h1 class="display-4">Our Sectors</h1> -->
+<!-- Add the new titles and content above the cards -->
+    <div class="overlay2">
+    <div class="content-wrapper">
+
+<div class="sectors-experience-container">
+  <!-- Left Side: Our Sectors -->
+  <div class="sectors-content">
+    <h1 class="custom-title">Our Sectors</h1>
+    <p class="custom-subtitle">Investment sectors</p>
+    <a href="#more-sectors" class="custom-button">More about our sectors</a>
+  </div>
+
+  <!-- Right Side: Experience -->
+  <div class="experience-content">
+    <h1 class="custom-title">
+    <span id="experience-number">+0</span> Years of Experience
+</h1>
+
+    <p class="custom-subtitle">Al Baraq focuses on responding to the needs of companies and institutions in the Saudi market</p>
+  </div>
+</div>
+
+<!-- Cards Section -->
+<div class="cards-container">
+  <!-- Your existing cards remain unchanged -->
+</div>
+
+
+<!-- Cards Section -->
 <div class="cards-container">
 
     <!-- Card 1 - Sector 1 -->
@@ -47,7 +75,6 @@
               <div>
                 <a href="company1.html">Adams</a>
                 <p>
-
                   It was established in 2019 at situated free zone, Sharjah, United Arab Emirates with 15
                   years of experience. We are specialized in repackaging of milk powders. We are specialized
                   in Instant Full Cream Milk Repackaging. Adams Milk powder perfectly used for milk drink,
@@ -63,7 +90,6 @@
               <div>
                 <a href="company2.html">Taqteer</a>
                 <p>
-
                   Desalination, in simple terms, is the process of removing salt and minerals from sea water
                   to produce drinking water suitable for human consumption. Desalination nowadays is turning
                   into a reliable source of clean water that tackles the water scarcity that many nations
@@ -136,3 +162,52 @@
 
       </div>
     </div>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const section = document.querySelector(".sectors-experience-container");
+        const numberElement = document.getElementById("experience-number");
+  
+        let observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.add("visible");
+                        animateNumber(numberElement, 0, 20, 2000); // Gradually increase number
+                    } else {
+                        section.classList.remove("visible");
+                        numberElement.innerText = "+0"; // Reset for repeated animation
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+  
+        observer.observe(section);
+  
+        function animateNumber(element, start, end, duration) {
+            let range = end - start;
+            let startTime = null;
+  
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                let progress = timestamp - startTime;
+                let current = Math.min(start + (range * progress) / duration, end);
+                element.innerText = `+${Math.floor(current)}`;
+  
+                if (progress < duration) {
+                    requestAnimationFrame(step);
+                } else {
+                    element.innerText = `+${end}`; // Ensure final value is exactly 20
+                }
+            }
+  
+            requestAnimationFrame(step);
+        }
+    });
+  </script>
+  
+  
+  
