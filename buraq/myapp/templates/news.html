@@ -1,88 +1,64 @@
 {%  load static  %}
 
 <div class="overlay2">
-  <div class="content-wrapper">
-<!-- Twitter Widget -->
-              <div class="twitter-widget">
-                <a class="twitter-timeline" href="https://twitter.com/Cristiano?ref_src=twsrc%5Etfw">Tweets by
-                  XDevelopers</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              </div>
-
-              <!-- Inner Horizontal Carousel -->
-              <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active">
-                    <img src="{% static 'images/icons/circle-quarter.svg' %}" alt="Indicator">
-                  </button>
-                  <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1">
-                    <img src="{% static 'images/icons/circle-quarter.svg' %}" alt="Indicator">
-                  </button>
-                  <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2">
-                    <img src="{% static 'images/icons/circle-quarter.svg' %}" alt="Indicator">
-                  </button>
-                  <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="3">
-                    <img src="{% static 'images/icons/circle-quarter.svg' %}" alt="Indicator">
-                  </button>
+  <section id="company-news">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column: News Carousel -->
+            <div class="col-md-6">
+                <div id="newsCarousel" class="carousel news-carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p>📢 Company expands to new markets!</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p>🚀 New product launch coming soon!</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p>🏆 Company wins an industry award!</p>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                        ‹
+                    </button>
+                    <button class="carousel-control-next" data-bs-target="#newsCarousel" data-bs-slide="next">
+                        ›
+                    </button>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="news-slide">
-                      <img src="{% static 'images/news1.jpg' %}" alt="News Image">
-                      <div class="news-content">
-                        <span class="news-date">Feb 10, 2025</span>
-                        <h3 class="news-title">Al-Buraq Expands Operations</h3>
-                        <h4 class="news-subtitle">New Headquarters Opened</h4>
-                        <p>Al-Buraq has officially opened its new headquarters in Riyadh, expanding its business
-                          operations.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="news-slide">
-                      <img src="{% static 'images/news2.jpg' %}" alt="News Image">
-                      <div class="news-content">
-                        <span class="news-date">Jan 28, 2025</span>
-                        <h3 class="news-title">New Strategic Partnerships</h3>
-                        <h4 class="news-subtitle">Collaboration with Top Firms</h4>
-                        <p>Al-Buraq has partnered with leading firms in the industry to accelerate innovation.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="news-slide">
-                      <img src="{% static 'images/news3.jpg' %}" alt="News Image">
-                      <div class="news-content">
-                        <span class="news-date">Dec 15, 2024</span>
-                        <h3 class="news-title">Sustainability Initiatives</h3>
-                        <h4 class="news-subtitle">Going Green</h4>
-                        <p>Al-Buraq announces its commitment to sustainability with new green policies.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="news-slide">
-                      <img src="{% static 'images/news4.jpg' %}" alt="News Image">
-                      <div class="news-content">
-                        <span class="news-date">Nov 20, 2024</span>
-                        <h3 class="news-title">Award for Excellence</h3>
-                        <h4 class="news-subtitle">Recognized for Innovation</h4>
-                        <p>Al-Buraq wins the prestigious award for excellence in business innovation.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-              </div>
-
-              <!-- More News Button -->
-              <div class="more-news">
-                <a href="news.html" class="btn btn-primary">More News about Al-Buraq</a>
-              </div>
             </div>
+
+            <!-- Right Column: Social Media Widgets -->
+            <div class="col-md-6">
+                <!-- LinkedIn Widget -->
+                <div class="linkedin-widget">
+                    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async></script>
+                    <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="your-linkedin-id"></div>
+                </div>
+
+                <!-- Twitter Widget -->
+                <div class="twitter-widget">
+                    <a class="twitter-timeline" data-height="400" href="https://twitter.com/your_twitter_handle?ref_src=twsrc%5Etfw">Tweets by YourTwitter</a>
+                    <script async src="https://platform.twitter.com/widgets.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
           </div>
+
+<script>
+          document.addEventListener("DOMContentLoaded", function () {
+            let carousel = document.querySelector("#newsCarousel .carousel-inner");
+            let items = document.querySelectorAll("#newsCarousel .carousel-item");
+            let currentIndex = 0;
+        
+            function showNextSlide() {
+                items[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % items.length;
+                items[currentIndex].classList.add("active");
+            }
+        
+            setInterval(showNextSlide, 3000);
+        });
+      </script>
