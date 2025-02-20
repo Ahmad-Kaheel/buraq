@@ -105,10 +105,10 @@ Second slide (Sectors & Companies)
   color: #1ccdfb;
 }
 
-.experience-number {
+#experience-number {
   font-size: 80px;
   /* Larger number */
-  color: black;
+  color: #1ccdfb;
 }
 
 .counter-text {
