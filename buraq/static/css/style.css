@@ -2,50 +2,57 @@
 Third slide (News)
 ------------------------------------------------------------------*/
 
-/* News Carousel Styling */
-.news-carousel {
-  width: 100%;
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
 
-.news-carousel .carousel-inner {
+/* Center the entire section */
+#company-news {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  /* Centers horizontally */
+  align-items: center;
+  /* Centers vertically */
+  padding: 5% 5% 5% 5%;
+  /* Adds space around */
+  padding-bottom: 200px;
 }
 
-.news-carousel .carousel-item {
-  min-width: 100%;
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
-  background: #007bff;
-  color: white;
-  border-radius: 5px;
-}
-
-/* Custom Navigation */
-.news-carousel .carousel-control-prev,
-.news-carousel .carousel-control-next {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
-
-/* Social Media Widget Styling */
+/* Center the carousel & widgets */
+.news-carousel,
 .linkedin-widget,
 .twitter-widget {
-  margin-top: 20px;
-  background: white;
-  padding: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-height: 50%;
+  /* Ensures text is centered */
 }
+
+.linkedin-widget,
+.twitter-widget {
+  width: 100%;
+  /* Ensure they take full column width */
+  max-width: 400px;
+  /* Set a reasonable max width */
+  height: 400px;
+  /* Fixed height to prevent resizing */
+  overflow: hidden;
+  /* Hide any content overflow */
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Center the carousel items */
+.carousel-item {
+  text-align: center;
+}
+
 
 
 /*----------------------------------------------------------------
