@@ -1,14 +1,11 @@
 {% load static %}
-
-<div class="overlay2">
   <section id="company-news">
-    <div class="container">
+    <div class="container-news">
       <div class="row">
         <!-- Left Column: News Carousel -->
         <div class="col-md-6">
           <div id="newsCarousel" class="carousel news-carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-              
               <!-- Slide 1 -->
               <div class="carousel-item active">
                 <img src="{% static 'images/news/sld1.jpg' %}" class="d-block w-100" alt="Company Expansion">
@@ -16,7 +13,7 @@
                   <p>📢 Company expands to new markets!</p>
                 </div>
               </div>
-
+        
               <!-- Slide 2 -->
               <div class="carousel-item">
                 <img src="{% static 'images/news/sld2.jpg' %}" class="d-block w-100" alt="New Product Launch">
@@ -24,7 +21,7 @@
                   <p>🚀 New product launch coming soon!</p>
                 </div>
               </div>
-
+        
               <!-- Slide 3 -->
               <div class="carousel-item">
                 <img src="{% static 'images/news/sld3.jpg' %}" class="d-block w-100" alt="Industry Award">
@@ -32,21 +29,24 @@
                   <p>🏆 Company wins an industry award!</p>
                 </div>
               </div>
-
             </div>
-
-            <!-- Carousel Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-
+        
+            <!-- Custom Carousel Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active">
+                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 1" class="indicator-icon">
+              </button>
+              <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1">
+                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 2" class="indicator-icon">
+              </button>
+              <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2">
+                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 3" class="indicator-icon">
+              </button>
+            </div>
+        
           </div>
         </div>
+        
 
         <!-- Right Column: Social Media Widgets -->
         <div class="col-md-6">
@@ -55,14 +55,12 @@
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7296941907329339395" height="400"  frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
           </div>
         
-
           <!-- Twitter Widget -->
           <div class="twitter-widget">
-            <a class="twitter-timeline" data-width="400" data-height="400"  href="https://twitter.com/Eyaaaad?ref_src=twsrc%5Etfw">Tweets by Eyaaaad</a>
+            <a class="twitter-timeline" data-width="600" data-height="400"  href="https://twitter.com/Eyaaaad?ref_src=twsrc%5Etfw">Tweets by Eyaaaad</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
         </div>
       </div>
     </div>
   </section>
-</div>
