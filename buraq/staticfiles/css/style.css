@@ -74,12 +74,12 @@ Third slide (News)
   overflow: hidden;
 }
 
-.carousel-item img {
-  /* width: 100%; */
-  /* height: 400px; */
-  /* object-fit: cover; */
+/* .carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
   border-radius: 8px;
-}
+} */
 
 .news-carousel {
   height: 100% !important;
@@ -150,6 +150,8 @@ Third slide (News)
   border: none;
 }
 
+
+
 /* Ensure carousel captions remain centered */
 .carousel-caption {
   position: absolute;
@@ -158,9 +160,11 @@ Third slide (News)
   transform: translateX(-50%);
   text-align: left;
   background: rgb(0, 0, 0);
+  background-size: 100% 100%;
   color: white;
   padding: 10px;
   /* border-radius: 8px; */
+
 }
 
 
@@ -394,9 +398,9 @@ Second slide (Sectors & Companies)
 }
 
 .company img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 20%;
+  height: 20%;
+  /* border-radius: 50%; */
   margin-top: 5px;
   flex-shrink: 0;
   /* Moves logo slightly down to align with text */
