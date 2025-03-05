@@ -4,32 +4,33 @@
       <div class="row">
         <!-- Left Column: News Carousel -->
         <div class="col-md-6">
-          <div id="newsCarousel" class="carousel news-carousel slide" data-bs-ride="carousel">
+          <div id="newsCarousel" class="carousel news-carousel slide" data-bs-ride="carousel" data-bs-wrap="true">
             <div class="carousel-inner">
               <!-- Slide 1 -->
-              <div class="carousel-item active">
+              <div class="news-slide active">  <!-- Renamed from carousel-item -->
                 <img src="{% static 'images/news/sld1.jpg' %}" class="d-block w-100" alt="Company Expansion">
                 <div class="carousel-caption">
                   <p>📢 Company expands to new markets!</p>
                 </div>
               </div>
-        
+            
               <!-- Slide 2 -->
-              <div class="carousel-item">
+              <div class="news-slide">  <!-- Renamed from carousel-item -->
                 <img src="{% static 'images/news/sld2.jpg' %}" class="d-block w-100" alt="New Product Launch">
                 <div class="carousel-caption">
                   <p>🚀 New product launch coming soon!</p>
                 </div>
               </div>
-        
+            
               <!-- Slide 3 -->
-              <div class="carousel-item">
+              <div class="news-slide">  <!-- Renamed from carousel-item -->
                 <img src="{% static 'images/news/sld3.jpg' %}" class="d-block w-100" alt="Industry Award">
                 <div class="carousel-caption">
                   <p>🏆 Company wins an industry award!</p>
                 </div>
               </div>
             </div>
+            
         
             <!-- Custom Carousel Indicators -->
             <ol class="carousel-indicators">
@@ -63,3 +64,27 @@
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var newsCarousel = document.querySelector("#newsCarousel");
+      if (newsCarousel) {
+        var slides = newsCarousel.querySelectorAll(".news-slide");
+        var currentIndex = 0;
+  
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+          });
+        }
+  
+        showSlide(currentIndex); // Show the first slide
+  
+        setInterval(function () {
+          currentIndex = (currentIndex + 1) % slides.length;
+          showSlide(currentIndex);
+        }, 3000); // Adjust timing if needed
+      }
+    });
+  </script>
+  

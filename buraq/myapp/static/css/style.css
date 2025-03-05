@@ -74,11 +74,17 @@ Third slide (News)
   overflow: hidden;
 }
 
-/* .carousel-item img {
+.carousel-item img {
   width: 100%;
-  height: 400px;
+  height: 50%;
   object-fit: cover;
-  border-radius: 8px;
+  /* border-radius: 8px; */
+}
+
+/* .carousel-item-2 img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
 } */
 
 .news-carousel {
@@ -151,25 +157,28 @@ Third slide (News)
 }
 
 
-
-/* Ensure carousel captions remain centered */
 .carousel-caption {
   position: absolute;
-  /* bottom: 10%; */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: left;
-  background: rgb(0, 0, 0);
-  background-size: 100% 100%;
-  color: white;
-  /* padding: 10px; */
-  /* border-radius: 8px; */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  bottom: 0;
+  /* Stick to the bottom */
+  left: 0;
   width: 100%;
-  height: 100%;
+  /* Cover full width */
+  height: 50%;
+  /* Cover full height */
+  background: rgb(0, 0, 0);
+  /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  /* Center text vertically */
+  justify-content: center;
+  /* Center text horizontally */
+  text-align: center;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
 }
+
 
 
 
@@ -665,16 +674,33 @@ General Styles
 .carousel-item {
   position: relative;
   overflow: hidden;
-
   width: 100%;
   height: 50vh;
 }
 
+/* .container,
+.carousel-container,
+.carousel,
+.carousel-inner,
+.carousel-item-2 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+} */
+
 .carousel-item {
   background-position: center center;
   background-size: cover;
-  height: 50vh;
+  height: 100vh;
 }
+
+
+/* .carousel-item-2 {
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+} */
 
 
 html,
@@ -711,6 +737,16 @@ body {
   background-size: cover;
 }
 
+/* .carousel-inner,
+.carousel,
+.carousel-item-2,
+.carousel-container {
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+} */
+
 .carousel-item-prev:not(.carousel-item-end),
 .active.carousel-item-start {
   transform: translate3d(0, -100%, 0);
@@ -720,6 +756,18 @@ body {
   -o-transform: translate3d(0, -100%, 0);
 }
 
+
+/* .carousel-item-2-prev:not(.carousel-item-2-end),
+.active.carousel-item-2-start {
+  transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
+  -moz-transform: translate3d(0, -100%, 0);
+  -ms-transform: translate3d(0, -100%, 0);
+  -o-transform: translate3d(0, -100%, 0);
+} */
+
+
+
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translate3d(0, 100%, 0);
@@ -728,6 +776,15 @@ body {
   -moz-transform: translate3d(0, 100%, 0);
   -o-transform: translate3d(0, 100%, 0);
 }
+
+/* .carousel-item-2-next:not(.carousel-item-2-start),
+.active.carousel-item-2-end {
+  transform: translate3d(0, 100%, 0);
+  -webkit-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+} */
 
 .carousel-indicators img {
   width: 20px;
