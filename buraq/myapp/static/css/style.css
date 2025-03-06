@@ -1,6 +1,262 @@
 /*----------------------------------------------------------------
+Forth slide (Values)
+------------------------------------------------------------------*/
+.values-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: auto;
+  padding: 60px 100px;
+  text-align: center;
+  background: #111;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.values-header {
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.values-header h1 {
+  font-size: 3rem;
+  color: #1ccdfb;
+  font-weight: bold;
+}
+
+.values-header p {
+  font-size: 1.3rem;
+  color: #ddd;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 equal columns */
+  grid-template-rows: repeat(2, auto);
+  /* 2 rows */
+  gap: 30px;
+}
+
+.value-card {
+  background: #222;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(28, 205, 251, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.value-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(28, 205, 251, 1);
+}
+
+.value-card i {
+  font-size: 3rem;
+  color: #1ccdfb;
+  margin-bottom: 15px;
+}
+
+.value-card h2 {
+  color: #1ccdfb;
+  font-size: 1.7rem;
+}
+
+.value-card p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/*----------------------------------------------------------------
+Forth slide (Policy)
+------------------------------------------------------------------*/
+.policy-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa, #1ccdfb);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.policy-header {
+  margin-bottom: 30px;
+}
+
+.policy-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.policy-header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.policy-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.policy-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.policy-card:hover {
+  transform: scale(1.05);
+}
+
+.policy-card h2 {
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.policy-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+/*----------------------------------------------------------------
 Third slide (News)
 ------------------------------------------------------------------*/
+
+.news-container {
+  width: 80%;
+  height: 80%;
+}
+
+.news-carousel {
+  border: 8px solid rgb(212, 212, 212);
+  border-radius: 8px;
+}
+
+.news-carousel-inner,
+.news-carousel,
+.news-slide {
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.news-slide-prev:not(.news-slide-end),
+.active.news-slide-start {
+  transform: translate3d(0, -100%, 0);
+}
+
+.news-slide-next:not(.news-slide-start),
+.active.news-slide-end {
+  transform: translate3d(0, 100%, 0);
+}
+
+.news-carousel-indicators {
+  top: 0;
+  margin: auto;
+  height: 20px;
+  right: 10px;
+  left: auto;
+  display: block;
+}
+
+.news-carousel-indicators li {
+  background: none;
+  border: 2px solid rgb(212, 212, 212);
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.news-carousel-indicators li.active {
+  background: rgb(212, 212, 212);
+}
+
+.news-carousel-control-next-icon,
+.news-carousel-control-prev-icon {
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: -1;
+}
+
+.news-carousel-control-prev-icon {
+  top: 5%;
+}
+
+/* Stops carousel on hover */
+.news-carousel:hover {
+  animation-play-state: paused !important;
+}
+
+/* Indicator icons */
+.indicator-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+}
+
+.indicator-icon:hover {
+  opacity: 1;
+}
+
+/* Jello Animation */
+.jello-horizontal {
+  animation: jello-horizontal 0.9s cubic-bezier(0.175, 0.885, 0.320, 1.275) 3 both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 
 
 .row {

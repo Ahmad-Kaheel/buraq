@@ -4,7 +4,7 @@
       <div class="row">
         <!-- Left Column: News Carousel -->
         <div class="col-md-6">
-          <div id="newsCarousel" class="carousel news-carousel slide" data-bs-ride="carousel" data-bs-wrap="true">
+          <div id="newsCarousel" class="carousel news-carousel slide"  data-bs-interval="false" data-bs-ride="false">
             <div class="carousel-inner">
               <!-- Slide 1 -->
               <div class="news-slide active">  <!-- Renamed from carousel-item -->
@@ -46,7 +46,6 @@
             </ol> 
           </div>
         </div>
-        
 
         <!-- Right Column: Social Media Widgets -->
         <div class="col-md-6">
@@ -64,27 +63,70 @@
       </div>
     </div>
   </section>
+<script>
+  $(document).ready(function () {
+      var newsCarousel = $("#newsCarousel");
+      var slides = $(".news-slide");
+      var indicators = $(".carousel-indicators li");
+      var currentIndex = 0;
+      var interval;
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var newsCarousel = document.querySelector("#newsCarousel");
-      if (newsCarousel) {
-        var slides = newsCarousel.querySelectorAll(".news-slide");
-        var currentIndex = 0;
-  
-        function showSlide(index) {
-          slides.forEach((slide, i) => {
-            slide.style.display = i === index ? "block" : "none";
-          });
-        }
-  
-        showSlide(currentIndex); // Show the first slide
-  
-        setInterval(function () {
-          currentIndex = (currentIndex + 1) % slides.length;
-          showSlide(currentIndex);
-        }, 3000); // Adjust timing if needed
+      function showSlide(index) {
+          slides.hide().eq(index).show();
+          indicators.removeClass("active").eq(index).addClass("active");
       }
-    });
-  </script>
-  
+
+      function startCarousel() {
+          interval = setInterval(function () {
+              currentIndex = (currentIndex + 1) % slides.length;
+              showSlide(currentIndex);
+          }, 3000);
+      }
+
+      function stopCarousel() {
+          clearInterval(interval);
+      }
+
+      // Initialize first slide
+      showSlide(currentIndex);
+      // startCarousel(); // Commented out to prevent auto-slide
+
+      // Handle indicator clicks
+      indicators.click(function () {
+          stopCarousel();
+          currentIndex = $(this).index();
+          showSlide(currentIndex);
+          startCarousel();
+      });
+
+      // Pause on hover
+      newsCarousel.hover(stopCarousel, startCarousel);
+
+      // Handle scroll event to navigate slides
+      newsCarousel.on("mousewheel DOMMouseScroll", function (e) {
+          if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+              newsCarousel.carousel('prev');
+          } else {
+              newsCarousel.carousel('next');
+          }
+          e.preventDefault();
+      });
+
+      // Handle touch swipe for mobile
+      newsCarousel.on("touchstart", function (event) {
+          var yTouchPointStart = event.originalEvent.touches[0].pageY;
+          $(this).on("touchmove", function (event) {
+              var yTouchPointEnd = event.originalEvent.touches[0].pageY;
+              if (Math.floor(yTouchPointStart - yTouchPointEnd) > 1) {
+                  $(this).carousel('next');
+              } else if (Math.floor(yTouchPointStart - yTouchPointEnd) < -1) {
+                  $(this).carousel('prev');
+              }
+          });
+          $(this).on("touchend", function () {
+              $(this).off("touchmove");
+          });
+          event.preventDefault();
+      });
+  });
+</script>
