@@ -33,11 +33,11 @@
             data-bs-placement="left">
             <img src="{% static 'images/icons/circle-quarter2.svg' %}" class="indicator-icon">
           </li>
-          <li data-bs-target="#vertical-carousel" data-bs-slide-to="5" title="Values" data-bs-toggle="tooltip"
+          <li data-bs-target="#vertical-carousel" data-bs-slide-to="5" title="Career" data-bs-toggle="tooltip"
             data-bs-placement="left">
             <img src="{% static 'images/icons/circle-quarter2.svg' %}" class="indicator-icon">
           </li>
-          <li data-bs-target="#vertical-carousel" data-bs-slide-to="6" title="Values" data-bs-toggle="tooltip"
+          <li data-bs-target="#vertical-carousel" data-bs-slide-to="6" title="Investment" data-bs-toggle="tooltip"
             data-bs-placement="left">
             <img src="{% static 'images/icons/circle-quarter2.svg' %}" class="indicator-icon">
           </li>
@@ -66,6 +66,10 @@
 
           <div class="carousel-item">
             {% include 'values.html' %}
+          </div>
+
+          <div class="carousel-item">
+            {% include 'jobs.html' %}
           </div>
 
           
