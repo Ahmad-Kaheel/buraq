@@ -166,11 +166,11 @@
     }
     
     .carousel-indicators-jobs img {
-        width: 60px;
-        height: 40px;
+        width: 2%;
+        height: 2%;
         cursor: pointer;
         margin: 0 5px;
-        border-radius: 5px;
+        /* border-radius: 5px; */
         opacity: 0.6;
         transition: opacity 0.3s ease;
     }
@@ -181,7 +181,7 @@
     }
     
     .more-jobs-btn-jobs {
-        background: #ff9800;
+        background: #1ccdfb;
         color: white;
         border: none;
         padding: 12px 20px;
@@ -192,27 +192,31 @@
     }
     
     .more-jobs-btn-jobs:hover {
-        background: #e68900;
+        background:rgb(14, 145, 182);
     }
 </style>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const indicators = document.querySelectorAll(".carousel-indicators-jobs img");
-        const carouselInner = document.querySelector(".carousel-inner-jobs");
-        const totalSlides = document.querySelectorAll(".carousel-item-jobs").length;
-        
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener("click", function () {
-                // Remove active class from all indicators
-                indicators.forEach(img => img.classList.remove("active"));
-                // Add active class to the clicked indicator
-                this.classList.add("active");
-    
-                // Move the carousel
-                carouselInner.style.transform = `translateX(-${index * 100}%)`;
-            });
+    $(document).ready(function() {
+        $(".jobs-carousel-jobs").addClass("owl-carousel"); // Ensure Owl class is added
+        $(".jobs-carousel-jobs").owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1 },   // Mobile
+                600: { items: 2 }, // Tablets
+                1000: { items: 3 } // Desktops
+            }
+        });
+
+        // Handle custom indicators
+        $(".carousel-indicators-jobs img").click(function() {
+            var index = $(this).data("slide-to");
+            $(".jobs-carousel-jobs").trigger('to.owl.carousel', [index, 300]);
         });
     });
-    </script>
-    
+</script>

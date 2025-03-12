@@ -1,4 +1,10 @@
 /*----------------------------------------------------------------
+Seventh slide (investment)
+------------------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------------
 Sixth slide (jobs)
 ------------------------------------------------------------------*/
 
@@ -344,7 +350,6 @@ Third slide (News)
   /* display: flex; */
   align-items: center;
   justify-content: center;
-
 }
 
 .container-news {
@@ -398,6 +403,7 @@ Third slide (News)
   /* Ensures proper size for carousel */
   overflow: hidden;
 }
+
 
 .carousel-item img {
   width: 100%;

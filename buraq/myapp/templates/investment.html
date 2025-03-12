@@ -1,0 +1,150 @@
+{% load static %}
+
+<div class="investment-container">
+    <div class="investment-header">
+        <h1>Invest with us </h1>
+        <p>Submit your data and invest with the right projects.</p>
+    </div>
+    
+    <div class="investment-form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number (e.g +996555555555)" required>
+            </div>
+
+            <div class="form-group">
+                <select id="project_type" name="project_type" class="form-control" required>
+                    <option value="">Select a Project Type</option>
+                    <option value="business_idea">Business Idea</option>
+                    <option value="existing_business">Existing Business Looking for a Partner</option>
+                    <option value="business_for_sale">Business for Sale</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pdf_upload">Upload Business Plan (PDF)</label>
+                <input type="file" id="pdf_upload" name="pdf_upload" class="form-control" accept=".pdf" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Background & Layout */
+    .investment-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(28, 205, 251, 0.9), rgba(17, 17, 17, 0.9));
+        color: white;
+        padding: 60px 100px;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Animated Background */
+    .investment-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background: url("{% static 'images/animated-bg.svg' %}") repeat; */
+        opacity: 0.3;
+        animation: moveBackground 20s linear infinite;
+    }
+
+    @keyframes moveBackground {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
+
+    .investment-header {
+        margin-bottom: 40px;
+        z-index: 2;
+    }
+
+    .investment-header h1 {
+        font-size: 3rem;
+        color: #1ccdfb;
+        font-weight: bold;
+    }
+
+    .investment-header p {
+        font-size: 1.3rem;
+        color: #ddd;
+    }
+
+    /* Form Styling */
+    .investment-form {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(28, 205, 251, 1);
+        width: 100%;
+        max-width: 500px;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInCard 1s ease-out forwards;
+    }
+
+    .investment-form .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .investment-form label {
+        font-weight: bold;
+        color: white;
+    }
+
+    .investment-form .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .investment-form select {
+        appearance: none;
+    }
+
+    .investment-form .btn-primary {
+        width: 100%;
+        background-color: #1ccdfb;
+        border: none;
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .investment-form .btn-primary:hover {
+        background-color: rgb(16, 161, 198);
+    }
+
+</style>
