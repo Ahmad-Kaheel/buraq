@@ -1,133 +1,263 @@
 {% load static %}
-  <section id="company-news">
-    <div class="container-news">
-      <div class="row">
-        <!-- Left Column: News Carousel -->
-        <div class="col-md-6">
-          <div id="newsCarousel" class="carousel news-carousel slide"  data-bs-interval="false" data-bs-ride="false">
-            <div class="carousel-inner">
-              <!-- Slide 1 -->
-              <div class="news-slide active">  <!-- Renamed from carousel-item -->
-                <img src="{% static 'images/news/sld1.jpg' %}" class="d-block w-100 news-img " alt="Company Expansion">
-                <div class="carousel-caption">
-                  <p>📢 Company expands to new markets!</p>
-                </div>
+{% load static %}
+<section id="company-news">
+  <div class="container-news">
+    <div class="row">
+      <!-- Left Column: Custom News Carousel -->
+      <div class="col-md-6">
+        <div id="customNewsCarousel" class="news-carousel">
+          <!-- Carousel Slides -->
+          <div class="custom-carousel-inner">
+            <div class="news-slide active">
+              <div class="news-image-container">
+                <img src="{% static 'images/news/sld1.jpg' %}" alt="Company Expansion" class="news-img">
               </div>
-            
-              <!-- Slide 2 -->
-              <div class="news-slide">  <!-- Renamed from carousel-item -->
-                <img src="{% static 'images/news/sld2.jpg' %}" class="d-block w-100 news-img " alt="New Product Launch">
-                <div class="carousel-caption">
-                  <p>🚀 New product launch coming soon!</p>
-                </div>
-              </div>
-            
-              <!-- Slide 3 -->
-              <div class="news-slide">  <!-- Renamed from carousel-item -->
-                <img src="{% static 'images/news/sld3.jpg' %}" class="d-block w-100 news-img " alt="Industry Award">
-                <div class="carousel-caption">
-                  <p>🏆 Company wins an industry award!</p>
-                </div>
+              <div class="news-caption">
+                <p>📢 Company expands to new markets!</p>
               </div>
             </div>
-            
-        
-            <!-- Custom Carousel Indicators -->
-            <ol class="carousel-indicators">
-              <li  data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active">
-                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 1" class="indicator-icon">
-              </li>
-              <li data-bs-target="#newsCarousel" data-bs-slide-to="1">
-                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 2" class="indicator-icon">
-              </li>
-              <li data-bs-target="#newsCarousel" data-bs-slide-to="2">
-                <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 3" class="indicator-icon">
-              </li>
-            </ol> 
+            <div class="news-slide">
+              <div class="news-image-container">
+                <img src="{% static 'images/news/sld2.jpg' %}" alt="New Product Launch" class="news-img">
+              </div>
+              <div class="news-caption">
+                <p>🚀 New product launch coming soon!</p>
+              </div>
+            </div>
+            <div class="news-slide">
+              <div class="news-image-container">
+                <img src="{% static 'images/news/sld3.jpg' %}" alt="Industry Award" class="news-img">
+              </div>
+              <div class="news-caption">
+                <p>🏆 Company wins an industry award!</p>
+              </div>
+            </div>
           </div>
+          <!-- Carousel Indicators (using only the circle-quarter2.svg icon) -->
+          <div class="carousel-indicators">
+            <span class="indicator active" data-slide-to="0">
+              <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 1" class="indicator-icon">
+            </span>
+            <span class="indicator" data-slide-to="1">
+              <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 2" class="indicator-icon">
+            </span>
+            <span class="indicator" data-slide-to="2">
+              <img src="{% static 'images/icons/circle-quarter2.svg' %}" alt="Slide 3" class="indicator-icon">
+            </span>
+          </div>
+          <!-- Carousel Controls -->
+          <button class="custom-carousel-control prev">&#10094;</button>
+          <button class="custom-carousel-control next">&#10095;</button>
         </div>
+      </div>
 
-        <!-- Right Column: Social Media Widgets -->
-        <div class="col-md-6">
-          <!-- LinkedIn Widget -->
-          <div class="linkedin-widget">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7296941907329339395" height="400"  frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-          </div>
-        
-          <!-- Twitter Widget -->
-          <div class="twitter-widget">
-            <a class="twitter-timeline" data-width="600" data-height="400"  href="https://twitter.com/Eyaaaad?ref_src=twsrc%5Etfw">Tweets by Eyaaaad</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
+      <!-- Right Column: Social Media Widgets -->
+      <div class="col-md-6">
+        <!-- LinkedIn Widget -->
+        <div class="linkedin-widget">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7296941907329339395" height="400" frameborder="0" allowfullscreen title="Embedded post"></iframe>
+        </div>
+        <!-- Twitter Widget -->
+        <div class="twitter-widget">
+          <a class="twitter-timeline" data-width="600" data-height="400" href="https://twitter.com/Eyaaaad?ref_src=twsrc%5Etfw">Tweets by Eyaaaad</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+
+<style>
+/* Custom Carousel Styles */
+.news-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 620px; /* Updated height to match widget column (e.g. 300 + 20 + 300 = 620px) */
+  overflow: hidden;
+  margin: 0 auto;
+  border: 8px solid rgb(212, 212, 212);
+  border-radius: 8px;
+}
+
+.custom-carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.news-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The top 50% for the image */
+.news-image-container {
+  height: 50%;
+  overflow: hidden;
+}
+
+.news-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The bottom 50% for the caption */
+.news-caption {
+  height: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.carousel-indicators .indicator {
+  cursor: pointer;
+}
+
+/* (Optional) Style the active indicator */
+.carousel-indicators .indicator.active img {
+  opacity: 1;
+}
+
+/* Carousel Controls */
+.custom-carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-carousel-control.prev {
+  left: 10px;
+}
+
+.custom-carousel-control.next {
+  right: 10px;
+}
+
+/* Existing Styles for the row/column structure remain as needed */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 3%;
+  margin: 0 auto;
+}
+
+.col-md-6 {
+  flex: 1 1 45%;
+  max-width: 45%;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.container-news {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+#company-news {
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0;
+}
+
+/* Updated Widget Styles (as before) */
+.linkedin-widget,
+.twitter-widget {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  overflow: hidden;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.linkedin-widget iframe,
+.twitter-widget iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+</style>
+
+
 <script>
-  $(document).ready(function () {
-      var newsCarousel = $("#newsCarousel");
-      var slides = $(".news-slide");
-      var indicators = $(".carousel-indicators li");
-      var currentIndex = 0;
-      var interval;
-
-      function showSlide(index) {
-          slides.hide().eq(index).show();
-          indicators.removeClass("active").eq(index).addClass("active");
-      }
-
-      function startCarousel() {
-          interval = setInterval(function () {
-              currentIndex = (currentIndex + 1) % slides.length;
-              showSlide(currentIndex);
-          }, 3000);
-      }
-
-      function stopCarousel() {
-          clearInterval(interval);
-      }
-
-      // Initialize first slide
-      showSlide(currentIndex);
-      // startCarousel(); // Commented out to prevent auto-slide
-
-      // Handle indicator clicks
-      indicators.click(function () {
-          stopCarousel();
-          currentIndex = $(this).index();
-          showSlide(currentIndex);
-          startCarousel();
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.getElementById("customNewsCarousel");
+    const inner = carousel.querySelector(".custom-carousel-inner");
+    const items = carousel.querySelectorAll(".news-slide");
+    const indicators = carousel.querySelectorAll(".indicator");
+    const prevButton = carousel.querySelector(".custom-carousel-control.prev");
+    const nextButton = carousel.querySelector(".custom-carousel-control.next");
+  
+    let currentIndex = 0;
+  
+    function updateCarousel() {
+      inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle("active", index === currentIndex);
       });
-
-      // Pause on hover
-      newsCarousel.hover(stopCarousel, startCarousel);
-
-      // Handle scroll event to navigate slides
-      newsCarousel.on("mousewheel DOMMouseScroll", function (e) {
-          if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-              newsCarousel.carousel('prev');
-          } else {
-              newsCarousel.carousel('next');
-          }
-          e.preventDefault();
-      });
-
-      // Handle touch swipe for mobile
-      newsCarousel.on("touchstart", function (event) {
-          var yTouchPointStart = event.originalEvent.touches[0].pageY;
-          $(this).on("touchmove", function (event) {
-              var yTouchPointEnd = event.originalEvent.touches[0].pageY;
-              if (Math.floor(yTouchPointStart - yTouchPointEnd) > 1) {
-                  $(this).carousel('next');
-              } else if (Math.floor(yTouchPointStart - yTouchPointEnd) < -1) {
-                  $(this).carousel('prev');
-              }
-          });
-          $(this).on("touchend", function () {
-              $(this).off("touchmove");
-          });
-          event.preventDefault();
-      });
+    }
+  
+    function goToSlide(index) {
+      if (index < 0 || index >= items.length) return;
+      currentIndex = index;
+      updateCarousel();
+    }
+  
+    function nextSlide() {
+      goToSlide((currentIndex + 1) % items.length);
+    }
+  
+    function prevSlide() {
+      goToSlide((currentIndex - 1 + items.length) % items.length);
+    }
+  
+    prevButton.addEventListener("click", prevSlide);
+    nextButton.addEventListener("click", nextSlide);
+  
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => goToSlide(index));
+    });
+  
+    // Auto-Play (Optional)
+    setInterval(nextSlide, 5000); // Change slide every 5 seconds
   });
+  
 </script>
-
