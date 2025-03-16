@@ -1,5 +1,5 @@
 {% load static %}
-{% load static %}
+<br>
 <section id="company-news">
   <div class="container-news">
     <div class="row">
@@ -70,6 +70,41 @@
 
 
 <style>
+
+/* Center the content vertically and horizontally */
+#company-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add some padding to prevent content from touching edges */
+  box-sizing: border-box;
+}
+
+.container-news {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.col-md-6 {
+  flex: 1 1 45%;
+  max-width: 45%;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
 /* Custom Carousel Styles */
 .news-carousel {
   position: relative;
@@ -111,7 +146,7 @@
 /* The bottom 50% for the caption */
 .news-caption {
   height: 50%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0, 0, 0);
   color: white;
   display: flex;
   align-items: center;
@@ -120,75 +155,30 @@
   text-align: center;
 }
 
-/* Carousel Indicators */
-.carousel-indicators {
+/* Carousel Indicators (scoped to #customNewsCarousel) */
+#customNewsCarousel .carousel-indicators {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%; /* Position vertically in the middle */
+  right: 20px; /* Position on the right side */
+  transform: translateY(-50%); /* Center vertically */
   display: flex;
-  gap: 5px;
+  flex-direction: column; /* Stack indicators vertically */
+  gap: 10px; /* Add space between indicators */
 }
 
-.carousel-indicators .indicator {
+#customNewsCarousel .carousel-indicators .indicator {
   cursor: pointer;
+  opacity: 0.5; /* Inactive indicator opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
 }
 
-/* (Optional) Style the active indicator */
-.carousel-indicators .indicator.active img {
-  opacity: 1;
+#customNewsCarousel .carousel-indicators .indicator.active {
+  opacity: 1; /* Active indicator opacity */
 }
 
-/* Carousel Controls */
-.custom-carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.custom-carousel-control.prev {
-  left: 10px;
-}
-
-.custom-carousel-control.next {
-  right: 10px;
-}
-
-/* Existing Styles for the row/column structure remain as needed */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0 3%;
-  margin: 0 auto;
-}
-
-.col-md-6 {
-  flex: 1 1 45%;
-  max-width: 45%;
-  min-width: 300px;
-  box-sizing: border-box;
-}
-
-.container-news {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-
-#company-news {
-  justify-content: center;
-  align-items: center;
-  margin: 5% 0;
+/* Remove Carousel Controls (Arrows) */
+#customNewsCarousel .custom-carousel-control {
+  display: none; /* Hide the arrows */
 }
 
 /* Updated Widget Styles (as before) */
@@ -213,7 +203,6 @@
   height: 100%;
   border: none;
 }
-
 </style>
 
 

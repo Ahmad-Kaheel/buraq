@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section id="overview-page">
+  <!-- Hero Section -->
+  <div class="overview-hero">
+    <div class="overview-hero-content">
+      <h1>Company Overview</h1>
+      <p>Discover the story behind ALBURAQ and our commitment to innovation and growth.</p>
+    </div>
+  </div>
+
+  <!-- Section 1: About ALBURAQ -->
+  <div class="overview-section">
+    <div class="overview-container">
+      <div class="overview-content">
+        <div class="overview-icon">
+          <i class="fas fa-building fa-3x"></i> <!-- Font Awesome icon -->
+        </div>
+        <div class="overview-text">
+          <h2>About ALBURAQ</h2>
+          <p>
+            ALBURAQ is proudly a Saudi fast-growing company that is recognized as an innovative business incubator that serves as a conglomerate of subsidiaries, spanning the most exciting markets in diverse business sectors crucial to sustainable prosperity with full attention to harnessing our potential by being a trusted & reliable partner led by young and innovative professionals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Our Professionals -->
+  <div class="overview-section">
+    <div class="overview-container">
+      <div class="overview-content">
+        <div class="overview-icon">
+          <i class="fas fa-users fa-3x"></i> <!-- Font Awesome icon -->
+        </div>
+        <div class="overview-text">
+          <h2>Our Professionals</h2>
+          <p>
+            Our innovative professionals with several years of investment, financing, and management experience in multiple industries, who strive to create long-lasting value and achieve a positive impact to all of our partners from diverse business sectors. We offer a wide range of products & services for the domestic, commercial, and industrial sectors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <style>/* Overview Page Styles */
+    #overview-page {
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Hero Section */
+    .overview-hero {
+      background: linear-gradient(135deg, rgba(28, 205, 251, 0.9), rgba(17, 17, 17, 0.9));
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    
+    .overview-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+    
+    .overview-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    /* Overview Sections */
+    .overview-section {
+      padding: 60px 20px;
+      background: #f9f9f9;
+    }
+    
+    .overview-section:nth-child(odd) {
+      background: #fff;
+    }
+    
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .overview-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .overview-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .overview-icon {
+      color: #1ccdfb; /* Icon color */
+    }
+    
+    .overview-text {
+      flex: 1;
+    }
+    
+    .overview-text h2 {
+      font-size: 2rem;
+      color: #1ccdfb;
+      margin-bottom: 20px;
+    }
+    
+    .overview-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .overview-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .overview-hero h1 {
+        font-size: 2.5rem;
+      }
+    
+      .overview-hero p {
+        font-size: 1rem;
+      }
+    
+      .overview-text h2 {
+        font-size: 1.8rem;
+      }
+    
+      .overview-text p {
+        font-size: 1rem;
+      }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Hero section animations
+        const heroTitle = document.querySelector(".overview-hero h1");
+        const heroText = document.querySelector(".overview-hero p");
+      
+        heroTitle.style.animation = "fadeInDown 1s ease-out forwards";
+        heroText.style.animation = "fadeInUp 1s ease-out forwards";
+      
+        // Section animations
+        const sections = document.querySelectorAll(".overview-content");
+      
+        const fadeInSections = () => {
+          sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+      
+            if (sectionTop < windowHeight * 0.8) {
+              section.classList.add("visible");
+            }
+          });
+        };
+      
+        window.addEventListener("scroll", fadeInSections);
+        fadeInSections(); // Trigger on page load
+      });
+</script>
+
+{% endblock content %}

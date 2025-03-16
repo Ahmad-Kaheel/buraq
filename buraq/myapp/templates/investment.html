@@ -43,15 +43,51 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <img src="{% static 'images/icons/logo3.svg' %}" class="investment-logo" alt="Alburaq Logo">
+    <div class="company-info">
+            <i class="fas fa-map-marker-alt"></i>
+            AlRiyadh Development Centre, King Fahd Road, 12671 Riyadh 2729
+            
+            <div class="info">
+                <i class="fas fa-phone"></i>
+                +000 00 000 0000
+            </div>
+
+            <div class="info">
+                <i class="fas fa-envelope"></i>
+                info@alburaq.com.sa
+            </div>
+    </div>
+
 </div>
 
+
 <style>
+    .company-info {
+        position: absolute;
+        top: 70%;
+        right: 0%;
+        text-align: left;
+        transform: translateY(-50%); /* Center vertically */
+        transform: translateX(-50%);
+
+    }
+    
+    
+    .investment-logo {
+        position: absolute;
+        top: 40%;
+        right: 25%;
+        width: 140px;
+        height: 140px;
+        transform: translateY(-50%); /* Center vertically */
+        transform: translateX(-50%);
+    }
+
     /* Background & Layout */
     .investment-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
         text-align: center;
         background: linear-gradient(135deg, rgba(28, 205, 251, 0.9), rgba(17, 17, 17, 0.9));
@@ -61,6 +97,12 @@
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         position: relative;
         overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        justify-content: center;
+        
+
     }
 
     /* Animated Background */
@@ -82,14 +124,17 @@
     }
 
     .investment-header {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         z-index: 2;
+        align-items: center;
     }
 
-    .investment-header h1 {
+    .investment-container .investment-header h1 {
         font-size: 3rem;
         color: #1ccdfb;
         font-weight: bold;
+        align-items: center;
+
     }
 
     .investment-header p {
@@ -109,6 +154,10 @@
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInCard 1s ease-out forwards;
+        justify-content: end;
+        align-items: end;
+        
+
     }
 
     .investment-form .form-group {
